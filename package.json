@@ -13,7 +13,10 @@
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run angular-pwa:server:production"
+    "build:client-and-server-bundles": "ng build --prod && npm run workbox-build-inject && ng run angular-pwa:server:production",
+    "serve:prerender": "cd dist/browser && http-server",
+    "build:prerender": "npm run build:client-and-server-bundles && npm run compile:server && npm run generate:prerender",
+    "generate:prerender": "cd dist && node prerender"
   },
   "private": true,
   "dependencies": {

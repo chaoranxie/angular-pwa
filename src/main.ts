@@ -10,7 +10,8 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
+document.addEventListener('DOMContentLoaded', () => {
+  platformBrowserDynamic().bootstrapModule(AppModule)
   .then( () => {
     register('sw.js', {
       updated (registration) {
@@ -21,4 +22,5 @@ platformBrowserDynamic().bootstrapModule(AppModule)
     })
   })
   .catch(err => console.error(err));
+});
 

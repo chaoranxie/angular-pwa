@@ -29,7 +29,7 @@ import { NonCachedRouteComponent } from './non-cached-route/non-cached-route.com
     NonCachedRouteComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
