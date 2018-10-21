@@ -20,7 +20,6 @@ import {
 } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 
-// import 'hammerjs';
 
 @NgModule({
   imports: [

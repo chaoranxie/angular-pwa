@@ -5,6 +5,7 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 import { register } from 'register-service-worker'
+import 'hammerjs';
 
 if (environment.production) {
   enableProdMode();
@@ -12,15 +13,14 @@ if (environment.production) {
 
 document.addEventListener('DOMContentLoaded', () => {
   platformBrowserDynamic().bootstrapModule(AppModule)
-  .then( () => {
-    register('sw.js', {
-      updated (registration) {
-        if (confirm(`New content is available!. Click OK to refresh`)) {
+    .then(() => {
+      register('sw.js', {
+        updated(registration) {
+          if (confirm(`New content is available!. Click OK to refresh`)) {
             window.location.reload();
+          }
         }
-      }
+      })
     })
-  })
-  .catch(err => console.error(err));
+    .catch(err => console.error(err));
 });
-
