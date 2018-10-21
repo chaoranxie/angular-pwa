@@ -1,4 +1,7 @@
 {
-  "rewrites": [{ "source": "/**", "destination": "/index.html" }],
-  "public": "dist/angular-pwa"
+  "rewrites": [{
+    "source": "/**",
+    "destination": "/index.html"
+  }],
+  "public": "dist/browser"
 }
